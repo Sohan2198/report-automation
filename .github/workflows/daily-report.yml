@@ -2,7 +2,7 @@ name: Daily Sales Report
 
 on:
   schedule:
-    - cron: '40 6 * * *'
+    - cron: '21 7 * * *'
   workflow_dispatch:
 
 jobs:
