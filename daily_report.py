@@ -30,6 +30,7 @@ def _windsor_get(report_date: str, fields: str) -> list:
     }
     r = requests.get(WINDSOR_URL, params=params, timeout=30)
     print(f"Windsor response [{r.status_code}]: {r.text[:300]}")
+    print("testing")
     r.raise_for_status()
     data = r.json()
     if isinstance(data, list):
