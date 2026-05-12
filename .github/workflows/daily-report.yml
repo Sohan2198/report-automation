@@ -2,7 +2,8 @@ name: Daily Sales Report
 
 on:
   schedule:
-    - cron: '35 7 * * *'
+    # 06:45 IST = 01:15 UTC (IST is UTC+5:30, no DST)
+    - cron: '15 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -22,8 +23,8 @@ jobs:
 
       - name: Run daily report
         env:
-          WINDSOR_API_KEY: ${{ secrets.WINDSOR_API_KEY }}
-          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          WINDSOR_API_KEY:    ${{ secrets.WINDSOR_API_KEY }}
+          GMAIL_ADDRESS:      ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          REPORT_RECIPIENT: ${{ secrets.REPORT_RECIPIENT }}
-        run: python daily_report.py
+          REPORT_RECIPIENT:   ${{ secrets.REPORT_RECIPIENT }}
+        run: python daily_sales_report.py
